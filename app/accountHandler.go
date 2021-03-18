@@ -2,7 +2,6 @@ package app
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/beslnet/banking/dto"
@@ -17,7 +16,6 @@ type AccountHandler struct {
 func (h AccountHandler) NewAccount(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	customerId := vars["customer_id"]
-	fmt.Print(customerId)
 	var request dto.NewAccountRequest
 	err := json.NewDecoder(r.Body).Decode(&request)
 
@@ -34,6 +32,7 @@ func (h AccountHandler) NewAccount(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// /customers/2000/accounts/90720
 func (h AccountHandler) MakeTransaction(w http.ResponseWriter, r *http.Request) {
 	// get the account_id and customer_id from the URL
 	vars := mux.Vars(r)

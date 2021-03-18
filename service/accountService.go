@@ -36,7 +36,7 @@ func (s DefaultAccountService) MakeTransaction(req dto.TransactionRequest) (*dto
 	err := req.Validate()
 
 	if err != nil {
-		return nil, (*errs.AppError)(err)
+		return nil, err
 	}
 	// server side validation for checking the available balance in the account
 	if req.IsTransactionTypeWithdrawal() {
