@@ -17,7 +17,7 @@ import (
 func sanityCheck() {
 	envProps := []string{
 		"SERVER_ADDRESS",
-		"SERVER_PORT",
+		"SERVER_PORT1",
 		"DB_USER",
 		"DB_ADDR",
 		"DB_PORT",
@@ -52,7 +52,7 @@ func Start() {
 	router.Use(am.authorizationHandler())
 	//Starting Server
 	address := os.Getenv("SERVER_ADDRESS")
-	port := os.Getenv("SERVER_PORT")
+	port := os.Getenv("SERVER_PORT1")
 	log.Fatal(http.ListenAndServe(fmt.Sprintf("%s:%s", address, port), router))
 
 }
